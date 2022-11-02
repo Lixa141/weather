@@ -2,20 +2,23 @@ import 'package:friflex_test/features/cities/data/api/cities_api.dart';
 import 'package:friflex_test/features/cities/domain/model/city.dart';
 import 'package:injectable/injectable.dart';
 
+/// Сервис для работы с городами
 abstract class CitiesRepository {
-  Future<List<City>> loadCities(String query);
+  /// Ищет город
+  /// Возвращает первый найденный
+  Future<City> searchCity(String query);
 }
 
 @Injectable(as: CitiesRepository)
 class CitiesRepositoryImpl implements CitiesRepository {
-  final CitiesApi citiesApi;
+  final CitiesApi cityApi;
 
-  const CitiesRepositoryImpl({required this.citiesApi});
+  const CitiesRepositoryImpl({required this.cityApi});
 
   @override
-  Future<List<City>> loadCities(String query) async {
-    var result = await citiesApi.loadCities(query);
+  Future<City> searchCity(String query) async {
+    var result = await cityApi.searchCity(query);
 
-    return result.map((dto) => City.fromDto(dto)).toList();
+    return City.fromDto(result.first);
   }
 }

@@ -1,57 +1,28 @@
 import 'package:dio/dio.dart';
-import 'package:friflex_test/app/config.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton()
 class DioService {
-  DioService(AppConfig appConfig) {
-    final options = BaseOptions(
-      baseUrl: appConfig.baseUrl,
-      connectTimeout: 15000,
-      receiveTimeout: 7000,
-    );
-    dio = Dio(options);
-
-    addInterceptor(AuthTokenInterceptor());
-  }
+  static const String apiUrlKey = "WEATHER_MAP_URL";
 
   late final Dio dio;
 
-  void addInterceptor(Interceptor interceptor) {
-    if (dio.interceptors.contains(interceptor)) {
-      dio.interceptors.remove(interceptor);
-    }
-    deleteInterceptor(interceptor.runtimeType);
-    dio.interceptors.add(interceptor);
-  }
+  DioService() {
+    dio = Dio(BaseOptions(baseUrl: dotenv.get(apiUrlKey)));
 
-  void deleteInterceptor(Type interceptorType) {
-    dio.interceptors.removeWhere((element) => element.runtimeType == interceptorType);
+    dio.interceptors.add(ApiKeyInterceptor());
   }
 }
 
-class AuthTokenInterceptor extends Interceptor {
+/// Интерцептор, который вставляет в запрос appID полученный в OpenWeatherMap
+class ApiKeyInterceptor extends Interceptor {
+  static const String appIdKey = "WEATHER_MAP_APP_ID";
+
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    final requireAuth = options.extra[HttpApi.requireAuthExtra] ?? true;
-
-    options.headers.removeWhere((key, value) => value == null);
-
-    if (requireAuth == true) {
-    //   final pref = getIt<AppSecureStorage>(); // TODO Добавить flutter_secure_storage и обернуть его в AppSecureStorage, AppSecureStorage добавить в di
-    //   pref.getAuth().then((auth) {
-    //     if (auth != null) {
-    //       options.headers[HttpApi.authorizationHeader] = 'Bearer ${auth.token}';
-    //     }
-    //   });
-    }
+    options.queryParameters.addAll({'appid': dotenv.get(appIdKey)});
 
     handler.next(options);
-    super.onRequest(options, handler);
   }
-}
-
-abstract class HttpApi {
-  static const String requireAuthExtra = 'requireAuth';
-  static const String authorizationHeader = 'Authorization';
 }
