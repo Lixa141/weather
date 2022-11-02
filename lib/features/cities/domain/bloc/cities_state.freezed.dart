@@ -18,21 +18,24 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CitiesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(City? city) loadSuccess,
+    required TResult Function(City city) loadSuccess,
+    required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function() loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(City? city)? loadSuccess,
+    TResult? Function(City city)? loadSuccess,
+    TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function()? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(City? city)? loadSuccess,
+    TResult Function(City city)? loadSuccess,
+    TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function()? loadFailure,
     required TResult orElse(),
@@ -41,6 +44,7 @@ mixin _$CitiesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CitiesSuccess value) loadSuccess,
+    required TResult Function(_CitiesInitial value) initial,
     required TResult Function(_CitiesInProgress value) loadInProgress,
     required TResult Function(_CitiesFailure value) loadFailure,
   }) =>
@@ -48,6 +52,7 @@ mixin _$CitiesState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CitiesSuccess value)? loadSuccess,
+    TResult? Function(_CitiesInitial value)? initial,
     TResult? Function(_CitiesInProgress value)? loadInProgress,
     TResult? Function(_CitiesFailure value)? loadFailure,
   }) =>
@@ -55,6 +60,7 @@ mixin _$CitiesState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CitiesSuccess value)? loadSuccess,
+    TResult Function(_CitiesInitial value)? initial,
     TResult Function(_CitiesInProgress value)? loadInProgress,
     TResult Function(_CitiesFailure value)? loadFailure,
     required TResult orElse(),
@@ -86,7 +92,7 @@ abstract class _$$_CitiesSuccessCopyWith<$Res> {
           _$_CitiesSuccess value, $Res Function(_$_CitiesSuccess) then) =
       __$$_CitiesSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({City? city});
+  $Res call({City city});
 }
 
 /// @nodoc
@@ -100,13 +106,13 @@ class __$$_CitiesSuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? city = freezed,
+    Object? city = null,
   }) {
     return _then(_$_CitiesSuccess(
-      city: freezed == city
+      city: null == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as City?,
+              as City,
     ));
   }
 }
@@ -117,7 +123,7 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   const _$_CitiesSuccess({required this.city});
 
   @override
-  final City? city;
+  final City city;
 
   @override
   String toString() {
@@ -144,7 +150,8 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(City? city) loadSuccess,
+    required TResult Function(City city) loadSuccess,
+    required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function() loadFailure,
   }) {
@@ -154,7 +161,8 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(City? city)? loadSuccess,
+    TResult? Function(City city)? loadSuccess,
+    TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function()? loadFailure,
   }) {
@@ -164,7 +172,8 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(City? city)? loadSuccess,
+    TResult Function(City city)? loadSuccess,
+    TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function()? loadFailure,
     required TResult orElse(),
@@ -179,6 +188,7 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CitiesSuccess value) loadSuccess,
+    required TResult Function(_CitiesInitial value) initial,
     required TResult Function(_CitiesInProgress value) loadInProgress,
     required TResult Function(_CitiesFailure value) loadFailure,
   }) {
@@ -189,6 +199,7 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CitiesSuccess value)? loadSuccess,
+    TResult? Function(_CitiesInitial value)? initial,
     TResult? Function(_CitiesInProgress value)? loadInProgress,
     TResult? Function(_CitiesFailure value)? loadFailure,
   }) {
@@ -199,6 +210,7 @@ class _$_CitiesSuccess implements _CitiesSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CitiesSuccess value)? loadSuccess,
+    TResult Function(_CitiesInitial value)? initial,
     TResult Function(_CitiesInProgress value)? loadInProgress,
     TResult Function(_CitiesFailure value)? loadFailure,
     required TResult orElse(),
@@ -211,12 +223,126 @@ class _$_CitiesSuccess implements _CitiesSuccess {
 }
 
 abstract class _CitiesSuccess implements CitiesState {
-  const factory _CitiesSuccess({required final City? city}) = _$_CitiesSuccess;
+  const factory _CitiesSuccess({required final City city}) = _$_CitiesSuccess;
 
-  City? get city;
+  City get city;
   @JsonKey(ignore: true)
   _$$_CitiesSuccessCopyWith<_$_CitiesSuccess> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CitiesInitialCopyWith<$Res> {
+  factory _$$_CitiesInitialCopyWith(
+          _$_CitiesInitial value, $Res Function(_$_CitiesInitial) then) =
+      __$$_CitiesInitialCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CitiesInitialCopyWithImpl<$Res>
+    extends _$CitiesStateCopyWithImpl<$Res, _$_CitiesInitial>
+    implements _$$_CitiesInitialCopyWith<$Res> {
+  __$$_CitiesInitialCopyWithImpl(
+      _$_CitiesInitial _value, $Res Function(_$_CitiesInitial) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_CitiesInitial implements _CitiesInitial {
+  const _$_CitiesInitial();
+
+  @override
+  String toString() {
+    return 'CitiesState.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CitiesInitial);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(City city) loadSuccess,
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function() loadFailure,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(City city)? loadSuccess,
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function()? loadFailure,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(City city)? loadSuccess,
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function()? loadFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CitiesSuccess value) loadSuccess,
+    required TResult Function(_CitiesInitial value) initial,
+    required TResult Function(_CitiesInProgress value) loadInProgress,
+    required TResult Function(_CitiesFailure value) loadFailure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CitiesSuccess value)? loadSuccess,
+    TResult? Function(_CitiesInitial value)? initial,
+    TResult? Function(_CitiesInProgress value)? loadInProgress,
+    TResult? Function(_CitiesFailure value)? loadFailure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CitiesSuccess value)? loadSuccess,
+    TResult Function(_CitiesInitial value)? initial,
+    TResult Function(_CitiesInProgress value)? loadInProgress,
+    TResult Function(_CitiesFailure value)? loadFailure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CitiesInitial implements CitiesState {
+  const factory _CitiesInitial() = _$_CitiesInitial;
 }
 
 /// @nodoc
@@ -257,7 +383,8 @@ class _$_CitiesInProgress implements _CitiesInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(City? city) loadSuccess,
+    required TResult Function(City city) loadSuccess,
+    required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function() loadFailure,
   }) {
@@ -267,7 +394,8 @@ class _$_CitiesInProgress implements _CitiesInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(City? city)? loadSuccess,
+    TResult? Function(City city)? loadSuccess,
+    TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function()? loadFailure,
   }) {
@@ -277,7 +405,8 @@ class _$_CitiesInProgress implements _CitiesInProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(City? city)? loadSuccess,
+    TResult Function(City city)? loadSuccess,
+    TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function()? loadFailure,
     required TResult orElse(),
@@ -292,6 +421,7 @@ class _$_CitiesInProgress implements _CitiesInProgress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CitiesSuccess value) loadSuccess,
+    required TResult Function(_CitiesInitial value) initial,
     required TResult Function(_CitiesInProgress value) loadInProgress,
     required TResult Function(_CitiesFailure value) loadFailure,
   }) {
@@ -302,6 +432,7 @@ class _$_CitiesInProgress implements _CitiesInProgress {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CitiesSuccess value)? loadSuccess,
+    TResult? Function(_CitiesInitial value)? initial,
     TResult? Function(_CitiesInProgress value)? loadInProgress,
     TResult? Function(_CitiesFailure value)? loadFailure,
   }) {
@@ -312,6 +443,7 @@ class _$_CitiesInProgress implements _CitiesInProgress {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CitiesSuccess value)? loadSuccess,
+    TResult Function(_CitiesInitial value)? initial,
     TResult Function(_CitiesInProgress value)? loadInProgress,
     TResult Function(_CitiesFailure value)? loadFailure,
     required TResult orElse(),
@@ -365,7 +497,8 @@ class _$_CitiesFailure implements _CitiesFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(City? city) loadSuccess,
+    required TResult Function(City city) loadSuccess,
+    required TResult Function() initial,
     required TResult Function() loadInProgress,
     required TResult Function() loadFailure,
   }) {
@@ -375,7 +508,8 @@ class _$_CitiesFailure implements _CitiesFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(City? city)? loadSuccess,
+    TResult? Function(City city)? loadSuccess,
+    TResult? Function()? initial,
     TResult? Function()? loadInProgress,
     TResult? Function()? loadFailure,
   }) {
@@ -385,7 +519,8 @@ class _$_CitiesFailure implements _CitiesFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(City? city)? loadSuccess,
+    TResult Function(City city)? loadSuccess,
+    TResult Function()? initial,
     TResult Function()? loadInProgress,
     TResult Function()? loadFailure,
     required TResult orElse(),
@@ -400,6 +535,7 @@ class _$_CitiesFailure implements _CitiesFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CitiesSuccess value) loadSuccess,
+    required TResult Function(_CitiesInitial value) initial,
     required TResult Function(_CitiesInProgress value) loadInProgress,
     required TResult Function(_CitiesFailure value) loadFailure,
   }) {
@@ -410,6 +546,7 @@ class _$_CitiesFailure implements _CitiesFailure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CitiesSuccess value)? loadSuccess,
+    TResult? Function(_CitiesInitial value)? initial,
     TResult? Function(_CitiesInProgress value)? loadInProgress,
     TResult? Function(_CitiesFailure value)? loadFailure,
   }) {
@@ -420,6 +557,7 @@ class _$_CitiesFailure implements _CitiesFailure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CitiesSuccess value)? loadSuccess,
+    TResult Function(_CitiesInitial value)? initial,
     TResult Function(_CitiesInProgress value)? loadInProgress,
     TResult Function(_CitiesFailure value)? loadFailure,
     required TResult orElse(),

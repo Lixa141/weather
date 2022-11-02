@@ -1,16 +1,25 @@
-# friflex_test
+# OpenWeatherMap app
 
-A new Flutter project.
+Приложение погоды в выбранном городе на 1 или 3 дня
 
-## Getting Started
+## Функционал
 
-This project is a starting point for a Flutter application.
+- На экране 1, при первом входе, отображается поле для ввода названия города и кнопка подтвердить
+- На экране 2 показывается детальная информация о погоде в выбранном городе (температура, влажность, скорость ветра)
+    - в аппбаре реализована кнопка, при нажатие на которую пользователь переходит на экран 1, где можно заново получить информацию о погоде другого города
+    - в аппбаре реализована кнопка, при нажатии на которую пользователь переходит на экран 3
+- На экране 3 отображается информация о погоде за 3 дня списком, где самый первый элемент списка - с самой низкой температурой
+- При получении ошибки отображается текст по центру экрана “Ошибка получения данных” и всплывает SnackBar с аналогичным текстом
 
-A few resources to get you started if this is your first Flutter project:
+## Инструменты
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- flutter_bloc для управления состояниями
+- freezed для иммутабельности состояний
+- get_it для работы с di
+- injectable для автогенерации регистрации зависимостей
+- dio для отправки запросов в сеть
+- intl для работы с локализацией и хранения строк
+- flutter_dotenv для безопасного хранения credentials
+- collection для дополнительного функционала коллекциям
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Использовал открытый API [(https://openweathermap.org/api)](https://openweathermap.org/api)
