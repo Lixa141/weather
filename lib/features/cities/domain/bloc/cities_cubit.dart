@@ -5,7 +5,7 @@ import 'package:friflex_test/features/cities/domain/repository/cities_repository
 class CitiesCubit extends Cubit<CitiesState> {
   final CitiesRepository citiesRepository;
 
-  CitiesCubit({required this.citiesRepository}) : super(const CitiesState.loadSuccess(city: null));
+  CitiesCubit({required this.citiesRepository}) : super(const CitiesState.loadInProgress());
 
   /// Обрабатывает нажатие на кнопку "Подтвердить"
   /// Если город не находится => возвращается null

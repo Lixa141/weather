@@ -58,7 +58,6 @@ class _CitiesContentState extends State<CitiesContent> {
             ),
             ElevatedButton(
               onPressed: state.maybeWhen(
-                loadInProgress: () => null,
                 orElse: () => () => context.read<CitiesCubit>().submitCity(editingController.text),
               ),
               child: Text(s.confirm_label),

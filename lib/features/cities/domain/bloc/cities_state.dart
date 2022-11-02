@@ -6,7 +6,7 @@ part 'cities_state.freezed.dart';
 @freezed
 class CitiesState with _$CitiesState {
   const factory CitiesState.loadSuccess({
-    required City? city,
+    required City city,
   }) = _CitiesSuccess;
 
   const factory CitiesState.loadInProgress() = _CitiesInProgress;
