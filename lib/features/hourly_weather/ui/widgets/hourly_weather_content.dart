@@ -26,7 +26,7 @@ class HourlyWeatherContent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(dayWeather.dateTime.toDateFormat()),
-                    Text('${s.average_temperature(dayWeather.averageTemperature.toStringAsFixed(2))} ℃'),
+                    Text(s.average_temperature(dayWeather.averageTemperature.toStringAsFixed(2))),
                     SizedBox(
                       height: 80,
                       child: ListView.separated(

@@ -3,8 +3,8 @@
   "common_error": "Ошибка получения данных",
   "confirm_label": "Подтвердить",
   "search_label": "Поиск",
-  "humidity_value": "Влажность: {value}",
-  "temperature_value": "Температура: {value}",
-  "wind_value": "Скорость ветра: {value}",
-  "average_temperature": "Средняя температура: {value}"
+  "humidity_value": "Влажность: {value} %",
+  "temperature_value": "Температура: {value} ℃",
+  "wind_value": "Скорость ветра: {value} м/с",
+  "average_temperature": "Средняя температура: {value} ℃"
 }

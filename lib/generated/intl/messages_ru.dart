@@ -20,13 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
-  static String m0(value) => "Средняя температура: ${value}";
+  static String m0(value) => "Средняя температура: ${value} ℃";
 
-  static String m1(value) => "Влажность: ${value}";
+  static String m1(value) => "Влажность: ${value} %";
 
-  static String m2(value) => "Температура: ${value}";
+  static String m2(value) => "Температура: ${value} ℃";
 
-  static String m3(value) => "Скорость ветра: ${value}";
+  static String m3(value) => "Скорость ветра: ${value} м/с";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{

@@ -80,40 +80,40 @@ class S {
     );
   }
 
-  /// `Влажность: {value}`
+  /// `Влажность: {value} %`
   String humidity_value(Object value) {
     return Intl.message(
-      'Влажность: $value',
+      'Влажность: $value %',
       name: 'humidity_value',
       desc: '',
       args: [value],
     );
   }
 
-  /// `Температура: {value}`
+  /// `Температура: {value} ℃`
   String temperature_value(Object value) {
     return Intl.message(
-      'Температура: $value',
+      'Температура: $value ℃',
       name: 'temperature_value',
       desc: '',
       args: [value],
     );
   }
 
-  /// `Скорость ветра: {value}`
+  /// `Скорость ветра: {value} м/с`
   String wind_value(Object value) {
     return Intl.message(
-      'Скорость ветра: $value',
+      'Скорость ветра: $value м/с',
       name: 'wind_value',
       desc: '',
       args: [value],
     );
   }
 
-  /// `Средняя температура: {value}`
+  /// `Средняя температура: {value} ℃`
   String average_temperature(Object value) {
     return Intl.message(
-      'Средняя температура: $value',
+      'Средняя температура: $value ℃',
       name: 'average_temperature',
       desc: '',
       args: [value],

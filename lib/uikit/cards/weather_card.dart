@@ -19,9 +19,9 @@ class WeatherCard extends StatelessWidget {
           direction: Axis.vertical,
           children: [
             if (showDate) Text(weather.dateTime.toDateFormat()),
-            Text('${s.humidity_value(weather.humidity)} %'),
-            Text('${s.temperature_value(weather.temperature.toStringAsFixed(2))} ℃'),
-            Text('${s.wind_value(weather.windSpeed)} м/с'),
+            Text(s.humidity_value(weather.humidity)),
+            Text(s.temperature_value(weather.temperature.toStringAsFixed(2))),
+            Text(s.wind_value(weather.windSpeed)),
             if (showTime) Text(weather.dateTime.toTimeFormat()),
           ],
         ),
