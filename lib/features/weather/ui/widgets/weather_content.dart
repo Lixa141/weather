@@ -6,6 +6,7 @@ import 'package:friflex_test/features/weather/domain/cubit/weather_cubit.dart';
 import 'package:friflex_test/features/weather/domain/cubit/weather_state.dart';
 import 'package:friflex_test/generated/l10n.dart';
 import 'package:friflex_test/uikit/uikit.dart';
+import 'package:friflex_test/utils/utils.dart';
 
 class WeatherContent extends StatelessWidget {
   final City city;
@@ -23,6 +24,13 @@ class WeatherContent extends StatelessWidget {
         title: Text(city.name),
         centerTitle: true,
         actions: [
+          IconButton(
+            onPressed: () {
+              context.read<WeatherCubit>().loadWeather(latitude: city.latitude, longitude: city.longitude);
+              showSnackBar(context, s.refresh);
+            },
+            icon: const Icon(Icons.refresh),
+          ),
           IconButton(
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute(

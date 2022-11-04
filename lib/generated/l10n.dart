@@ -119,6 +119,16 @@ class S {
       args: [value],
     );
   }
+
+  /// `Данные обновлены`
+  String get refresh {
+    return Intl.message(
+      'Данные обновлены',
+      name: 'refresh',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

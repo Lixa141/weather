@@ -6,5 +6,6 @@
   "humidity_value": "Влажность: {value} %",
   "temperature_value": "Температура: {value} ℃",
   "wind_value": "Скорость ветра: {value} м/с",
-  "average_temperature": "Средняя температура: {value} ℃"
+  "average_temperature": "Средняя температура: {value} ℃",
+  "refresh": "Данные обновлены"
 }

@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ошибка получения данных"),
         "confirm_label": MessageLookupByLibrary.simpleMessage("Подтвердить"),
         "humidity_value": m1,
+        "refresh": MessageLookupByLibrary.simpleMessage("Данные обновлены"),
         "search_label": MessageLookupByLibrary.simpleMessage("Поиск"),
         "temperature_value": m2,
         "wind_value": m3

@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 abstract class CitiesRepository {
   /// Ищет город
   /// Возвращает первый найденный
-  Future<City> searchCity(String query);
+  Future<List<City>> searchCities(String query);
 }
 
 @Injectable(as: CitiesRepository)
@@ -16,9 +16,9 @@ class CitiesRepositoryImpl implements CitiesRepository {
   const CitiesRepositoryImpl({required this.cityApi});
 
   @override
-  Future<City> searchCity(String query) async {
-    var result = await cityApi.searchCity(query);
+  Future<List<City>> searchCities(String query) async {
+    var result = await cityApi.searchCities(query);
 
-    return City.fromDto(result.first);
+    return result.map((e) => City.fromDto(e)).toList();
   }
 }
